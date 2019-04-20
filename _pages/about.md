@@ -1,17 +1,14 @@
 ---
 permalink: /about/
 title: "About"
-excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
-layouts_gallery:
-  - url: /assets/images/mm-layout-splash.png
-    image_path: /assets/images/mm-layout-splash.png
-    alt: "splash layout example"
-  - url: /assets/images/mm-layout-single-meta.png
-    image_path: /assets/images/mm-layout-single-meta.png
-    alt: "single layout with comments and related posts"
-  - url: /assets/images/mm-layout-archive.png
-    image_path: /assets/images/mm-layout-archive.png
-    alt: "archive layout example"
-last_modified_at: 2019-04-03T15:15:09-04:00
+last_modified_at: 2019-04-21T02:15:09-04:00
 toc: true
 ---
+
+IT 개발자로 개발하면서 겪었던 문제들을 정리하는 블로그입니다.
+저 역시 많은 문제들을 검색을 통해서 해결했었고, 많은 도움을 받았습니다.
+그런 과정을 블로그를 통해 정리하고 싶었고
+저와 같은 고민을 하는 사람들에게 도움을 주고 싶어 이 페이지를 시작합니다.
+
+혹시 잘못된 정보나 보충하고 싶은 정보를
+댓글이나 이메일 주시면 정말 감사하겠습니다. 큰 도움이 될 것 같습니다.
