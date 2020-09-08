@@ -1,15 +1,14 @@
 ---
-title: "Expression - js 개인 공부 정리"
+title: "Expression, Operator, Statement - js 개인 공부 정리"
 categories: 
   - js
-last_modified_at: 2020-09-06T20:10:00
+last_modified_at: 2020-09-08T20:10:00
 ---
 
 # Expression
 
 값을 만들어내는 표현을 표현식(Expression) 이라함
 
-ex)  
 ```js
 100 + 100  
 "Hello"  
@@ -18,10 +17,21 @@ ex)
 
 값을 만들어내기 때문에 함수(function)의 인자(parameter)로 사용할 수 있다.
 
-ex)  
 ```js
 alert("Hello" + "World!");  
 ```
+
+# Operator
+
+연산자 : =, +, -, *, / 등 계산을 수행
+
+```js
+100 + 100  
+let text = "test";
+let a = 10 / 5;
+a += 5;
+```
+
 
 # Statement
 

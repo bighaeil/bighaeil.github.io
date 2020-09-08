@@ -30,6 +30,7 @@ true, false 를 넣으면 `boolean` 타입이 된다.
 
 이를 `동적(dynamic) 타입` 이라고 한다.
 
+
 ## 타입 종류
 
 * 기본 타입(Primitive values)
@@ -41,13 +42,16 @@ true, false 를 넣으면 `boolean` 타입이 된다.
   * symbol(ECMAScript 6 에 추가됨)
 * 객체(objects)
 
+
 ## 기본 타입
+
 
 ### boolean
 
 true : 참
 
 false : 거짓
+
 
 ### null & undefined
 
@@ -67,6 +71,7 @@ typeof undefined; // 'undefined'
 
 즉 비어있다는 의미
 
+
 ### number
 
 123 : 정수는 숫자
@@ -83,21 +88,28 @@ var notNumber = Number('Ten'); // NaN
 문자열 10은 숫자로 `형변환` 했을때 10이라는 숫자로 표현할 수 있기 때문에 숫자가 가능하지만
 문자열 Ten은 숫자로 표현할 수 없기 때문에 `NaN` 이라는 타입은 number 이지만 숫자가 아닌 값이 된다.
 
+
 ### string
 
 '123' : 문자열
 
 "ABC" : 문자열
 
-ES6 부터 사용가능
+string 은 따옴표('), 쌍따옴표(") 둘다 사용 가능하다.
 
-\`문자 안에 스크립트를 넣고 싶을때 \`
+> 개인적으로는 따옴표를 주로 사용한다.  
+> 문자열안에 쌍따옴표를 넣는 경우가 더 많은 것 같은 느낌(?) 때문에
+
+
+\`문자 안에 스크립트를 넣고 싶을때 \` : ES6 부터 사용가능
 
 \`10 + 10 = ${10 + 10}\` : 10 + 10 = 20
 
+
+
 ### symbol()
 
-ES6 부터 사용가능
+고유한 값을 만들고 싶을때 사용
 
 ```js
 const a = Symbol('Const');
@@ -110,9 +122,9 @@ typeof a; // "symbol"
 
 a와 b 는 값은 값을 넣은 것 처럼 보이지만 같지가 않다.
 
-즉 고유한 값을 만들고 싶을때 사용
-
 symbol 은 new 로 만들 수 없다.
+
+ES6 부터 사용가능
 
 ```js
 new Symbol(); // error

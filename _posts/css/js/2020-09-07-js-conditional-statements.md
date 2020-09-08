@@ -1,11 +1,14 @@
 ---
-title: "conditional-statements - js 개인 공부 정리"
+title: "conditional statements - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-07T20:10:00
 ---
 
 # Conditional Statements
+
+조건문
+
 
 ## if
 
@@ -85,7 +88,9 @@ else if 는 여러개를 넣을 수 있다.
 
 ## 논리 연산자
 
+
 ### && - call) and 연산자
+
 
 and 연산자
 
@@ -100,6 +105,7 @@ if (false && false) {
 ```
 
 `&&`로 연결된 조건들 중에 하나라도 `false` 인 경우 연산결과는 `false`
+
 
 ### || - call) or 연산자
 
@@ -116,6 +122,7 @@ if (false && false) {
 ```
 `||`로 연결된 조건들 중에 하나라도 `true` 인 경우 연산결과는 `true`
 
+
 ### ! - call) not 연산자
 
 not 연산자
@@ -129,6 +136,7 @@ if (!true) {
 ```
 
 조건문 앞에 `!`가 붙으면 연산결과의 반대가 된다.
+
 
 ## 조건부 실행
 
@@ -250,3 +258,45 @@ switch(2) {
 
 break 는 필수가 아니기 때문에 필요에 따라 사용할 수 있지만  
 위처럼 불명확한 요소가 존재하기 때문에 조심해서 사용해야 한다.  
+아니면 정신건강을 위해 break 를 필수로 사용하자.  
+
+
+## 논리 연산자
+
+`>`, `<`, `>=` , `<=` 등이 존재한다.
+
+두 연산이 일치하는지 연산자는 2개가 존재한다.
+
+동등 연산자 `==` 와 일치 연산자 `===`
+
+반대는 각각
+
+`!=` 와 `!==`
+
+동등 연산자는 두 연산자의 자료형이 같지 않은 경우 같아지도록 변환한 후 비교한다.
+
+```js
+const a = 1;
+const b = '1';
+console.log(a == b); // true
+
+const a = false;
+const b = 0;
+console.log(a == b); // true
+```
+
+일치 연산자는 자료형 변환 없이 두 연산자가 엄격히 같은지 비교한다.
+
+```js
+const a = 1;
+const b = '1';
+console.log(a === b); // false
+
+const a = false;
+const b = 0;
+console.log(a === b); // false
+```
+
+동등 연산자를 사용할 때는 주의해야 한다.  
+예제와 같이 전혀 다른 값의 두 변수를 일치하다고 나오기 때문에 개발을 하면서 의도하지 않은 결과가 나올 수 있다.  
+정신건강을 위해 굳이 동등 연산자를 쓰려고하지 말고 그냥 사용하지 말자.  
