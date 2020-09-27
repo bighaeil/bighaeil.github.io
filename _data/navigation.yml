@@ -4,6 +4,11 @@ main:
     url: /about/
   - title: "Category"
     url: /categories/
+    children:
+      -title: "JS"
+      url: /JS/
+      -title: "CSS"
+      url: /CSS/
   - tags: "Tags"
     url: /tags/
   # - title: "Sample Collections"
