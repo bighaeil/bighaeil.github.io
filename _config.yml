@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "contrast" # "default", "air", "aqua", "contrast", "d
 
 # Site Settings
 locale                   : "ko-KR" # "en-US"
-title                    : "아는 만큼만 느나""
+title                    : "아는 만큼만 느나"
 title_separator          : "-"
 name                     : "BigHaeil"
 description              : "WILL BE Done"
@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Big Haeil"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "아는 만큼만 느나"
   location         : "korea"
   email            : "bighaeil@gmail.com"
   links:
