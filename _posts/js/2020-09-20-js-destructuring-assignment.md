@@ -3,6 +3,8 @@ title: "Destructuring assignment - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-20T20:00:00
+toc: true
+toc_sticky: true
 ---
 
 # Destructuring assignment - call) 구조 분해 할당

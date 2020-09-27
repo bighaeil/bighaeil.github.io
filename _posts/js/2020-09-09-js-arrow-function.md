@@ -3,6 +3,8 @@ title: "Arrow Function - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-09T20:10:00
+toc: true
+toc_sticky: true
 ---
 
 # Arrow Function - ES6

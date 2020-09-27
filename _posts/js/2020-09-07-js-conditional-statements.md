@@ -3,6 +3,8 @@ title: "conditional statements - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-07T20:10:00
+toc: true
+toc_sticky: true
 ---
 
 # Conditional Statements

@@ -3,6 +3,8 @@ title: "Identifier - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-06T20:30:00
+toc: true
+toc_sticky: true
 ---
 
 # Identifier

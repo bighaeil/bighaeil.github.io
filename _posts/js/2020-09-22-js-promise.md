@@ -4,6 +4,7 @@ categories:
   - js
 last_modified_at: 2020-09-22T20:00:00
 toc: true
+toc_sticky: true
 ---
 
 # Promise

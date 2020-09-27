@@ -3,6 +3,8 @@ title: "Template Literal - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-09T20:00:00
+toc: true
+toc_sticky: true
 ---
 
 # Template Literal - ES6
