@@ -108,7 +108,7 @@ analytics:
 author:
   name             : "Big Haeil"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "아는 만큼만 느나"
+  bio              : 
   location         : "korea"
   email            : "bighaeil@gmail.com"
   links:
