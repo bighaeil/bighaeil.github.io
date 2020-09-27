@@ -3,6 +3,7 @@ title: "Promise - js 개인 공부 정리"
 categories: 
   - js
 last_modified_at: 2020-09-22T20:00:00
+toc: true
 ---
 
 # Promise
