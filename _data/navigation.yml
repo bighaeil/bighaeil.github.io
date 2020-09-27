@@ -3,12 +3,12 @@ main:
   - title: "About"
     url: /about/
   - title: "Category"
-    url: /categories/
+    # url: /categories/
     children:
-      -title: "JS"
-      url: /JS/
-      -title: "CSS"
-      url: /CSS/
+      -title: "js"
+      url: /js/
+      -title: "css"
+      url: /css/
   - tags: "Tags"
     url: /tags/
   # - title: "Sample Collections"
