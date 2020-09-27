@@ -235,8 +235,8 @@ defaults:
       comments: true
       share: true
       related: true
-      sidebar:
-        nav: "main"
+      # sidebar:
+      #   nav: "main"
   # _pages
   - scope:
       path: "_pages"
