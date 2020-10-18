@@ -1,5 +1,5 @@
 ---
-title: "DAY 1 - object & design"
+title: "STEP 1 - object & design"
 categories: 
   - oop
 tags:
