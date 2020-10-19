@@ -1,5 +1,5 @@
 ---
-title: "STEP 0 - `오브젝트` 책을 읽고 나름대로 정리를 해보자"
+title: "CHEPTER 0 - `오브젝트` 책을 읽고 나름대로 정리를 해보자"
 categories: 
   - oop
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "STEP2 - object & design"
+title: "CHEPTER 2 - object & design 2"
 categories: 
   - oop
 tags:
@@ -12,11 +12,12 @@ toc: true
 toc_sticky: true
 ---
 
+이하 내용은 도서 `오브젝트`를 읽고 나 나름대로 정리를 한 내용입니다.  
+
+
 # 이론과 실무
 
-이전 시간에 이어서 수정을 계속해 보자.  
-
-## 판매자와 관람객의 자율성
+이전 포스트에 이어서 객체지향 설계를 계속해보자.  
 
 기존 코드
 ```java
@@ -44,6 +45,9 @@ class 관람객 {
   public 뭐가있지()
 }
 ```
+
+
+## 판매자와 관람객의 자율성
 
 판매원과 관람객의 자율성을 높인다.  
 ```java
