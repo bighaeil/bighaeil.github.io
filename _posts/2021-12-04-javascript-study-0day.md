@@ -1,5 +1,5 @@
 ---
-title: "javascript study curriculum"
+title: "JAVASCRIPT STUDY CURRICULUM"
 categories:
     - study
 last_modified_at: 2021-12-04T23:35:00
@@ -7,7 +7,7 @@ toc: true
 toc_sticky: true
 ---
 
-# 자바_스크립트_커리큘럼
+# 자바스크립트_커리큘럼
 
 ## 목표
 
