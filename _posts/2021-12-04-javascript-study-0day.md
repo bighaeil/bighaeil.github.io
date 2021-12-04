@@ -1,7 +1,7 @@
 ---
 title: "javascript study curriculum"
 categories:
-    - js
+    - study
 last_modified_at: 2021-12-04T23:35:00
 toc: true
 toc_sticky: true
