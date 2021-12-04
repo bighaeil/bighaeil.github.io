@@ -21,3 +21,6 @@ toc_sticky: true
 
 ## 목차
 
+1. Array
+2. function
+3. Closure & Hoisting
