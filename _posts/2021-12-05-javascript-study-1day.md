@@ -396,8 +396,41 @@ const result = arr.some((element) => element < 5); // output: true
 ES6에서 사용가능합니다.
 
 
-##
+## 전개 구문(spread syntax)
 
+배열 혹은 객체 등 반복가능한 객체를 키와 값으로 확장시킬 수 있습니다.
+
+!spread는 기존 객체로 새로운 객체를 생성하지만 얕은 복사라는 점을 유의합니다.
+
+### 함수 호출에서 spread
+
+```js
+const sum = (x, y, z) => x + y +z;
+const arr = [1, 2, 3];
+sum(...arr); // output: 6
+```
+
+
+### 배열에서 spread
+
+배열의 요소들을 이미 존재하는 배열의 일부로 하는 새로운 배열을 생성할 수 있습니다.
+
+```js
+const arr = [3, 4, 5];
+const newArr= [1, 2, ...arr, 6, 7]; // output: [1, 2, 3, 4, 5, 6, 7]
+```
+
+
+### 객체에서 spread
+
+객체의 열거형 속성을 전개하여 다른 객체의 속성으로 하는 새로운 객체를 생성할 수 있습니다.
+
+```js
+const obj = {a: 1, b: 2, c: 3};
+const newObj = {...obj, c: 4}; // output: {a: 1, b: 2, c: 4}
+```
+
+spread는 중복되는 속성의 경우 나중에 열거된 속성으로 결정된다는 점을 유의합니다.
 
 
 ## 참조
@@ -405,3 +438,4 @@ ES6에서 사용가능합니다.
 > [Enumerable properties](https://developer.mozilla.org/ko/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
 > [defineProperty](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 > [Iteration protocols](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols)
+> [rest parameters](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/rest_parameters)
