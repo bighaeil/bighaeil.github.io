@@ -98,7 +98,6 @@ arr.sort(function (a, b) {
 
 callback 함수를 이용하여 a와 b를 비교하여 작으면 a가 작으면 -1을 반환, a가 크면 1을 반환, 같으면 0을 반환하도록 만들어 사용합니다.
 
-
 sort 함수는 원본 배열을 변환하기 때문에 주의해서 사용해야합니다. 반환값 역시 정렬된 원본 배열 입니다.
 
 
@@ -111,8 +110,7 @@ var arr = ['a', 'b', 'e', 'd'];
 arr.splice(2, 1, 'c'); // output: [1, 2, 3, 4]
 ```
 
-| arr.splice(start, deleteCount, items)
-
+> arr.splice(start, deleteCount, items)
 
 |매개변수|설명|
 |---|---|
@@ -120,11 +118,91 @@ arr.splice(2, 1, 'c'); // output: [1, 2, 3, 4]
 |deleteCount|삭제할 요소의 수입니다. 생략하면 모든 요소를 제거합니다.|
 |items|배열에 추가할 요소입니다. 콤마`,`로 구분합니다.|
 
+splice 매서드는 원본 배열을 변경합니다. 반환 값으로 제거한 요소들을 담은 배열을 반환합니다.
 
 
+### concat()
+
+두 배열을 합쳐서 새로운 배열을 반환합니다. 기존 배열은 변경하지 않습니다.
+
+```js
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+var arr = arr1.concat(arr2); // output: [1, 2, 3, 4, 5, 6]
+```
+
+concat은 배열의 얕은 복사에도 사용합니다. 배열을 복사하긴 하지만 요소가 객체인 겨우 참조만 하기 때문에 사용시 유의해야 합니다.
 
 
+### filter()
 
+테스트를 통과한 모든 요소를 모아 새로운 배열을 반환합니다.
+
+```js
+var arr = [1, 2, 3, 4, 5];
+var result = arr.filter(function (item) {
+    return item < 4;
+}); // output: [1, 2, 3]
+```
+
+> arr.filter(callback(element[, index[, array]])[, thisArg])
+
+|매개변수|설명|
+|---|---|
+|callback|각 요소를 테스트하는 함수. true를 반환하면 요소를 유지하고, false 를 반환하면 요소를 버립니다.|
+|element|처리할 현재 요소|
+|index|처리하는 요소의 인덱스(optional)|
+|array|원본 배열(optional)|
+|thisArg|callback을 실행할 때 this로 사용하는 값(optional)|
+
+
+### join()
+
+배열의 모든 요소를 연결해 하나의 문자열로 만듭니다.
+
+```js
+var arr = ['a', 'b', 'c'];
+arr.join(); // output: 'a,b,c'
+arr.join(''); // output: 'abc'
+arr.join('-'); // output: 'a-b-c'
+```
+
+|---||
+|매개변수|separator를 요소 사이를 채웁니다. separator가 없는 경우 콤마`,`로 채웁니다.|
+|반환 값|separator를 포함한 문자열|
+
+
+### find()
+
+주어진 조건을 만족하는 첫 번째 요소를 반환합니다. 없으면 `undefined`를 반환합니다. ES6 문법이라 주의가 필요합니다.
+
+```js
+const arr = [1,2,3,4,5];
+const result = arr.find(item => item > 1); // output: 2
+```
+
+
+### forEach()
+
+배열을 순회하면서 callback을 수행합니다.
+
+```js
+arr.forEach(function (item) {
+    console.log(item);
+});
+```
+
+> arr.forEach(callback(element[, index[, array]])[, thisArg])
+
+|매개변수|설명|
+|---|---|
+|callback|각 요소를 테스트하는 함수. true를 반환하면 요소를 유지하고, false 를 반환하면 요소를 버립니다.|
+|element|처리할 현재 요소|
+|index|처리하는 요소의 인덱스(optional)|
+|array|원본 배열(optional)|
+|thisArg|callback을 실행할 때 this로 사용하는 값(optional)|
+
+forEach는 단지 배열을 순회할뿐 어떤 값을 반환하지 않습니다.
 
 
 
