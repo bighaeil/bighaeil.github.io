@@ -19,7 +19,7 @@ ES5 기준으로 작성하고 ES6 문법은 정리하지 안았습니다.
 
 ## 기본
 
-```ja
+```js
 var arr1 = [];
 var arr2 = new Array();
 var arr3 = [1, '0', {}];
@@ -70,3 +70,9 @@ var item = arr.pop()
 |---||
 |매개변수||
 |반환 값|배열이 있으면 배열의 마지막 요소, 없으면 `undefined`|
+
+
+
+
+## 참조
+> [Array](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array)
