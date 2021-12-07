@@ -10,12 +10,9 @@ toc_sticky: true
 # ARRAY
 
 자바스크립트에서 사용하는 ARRAY관련 특성과 함수를 정리해보았습니다.
+개인적으로 중요하다고 생각하는 부분만 추린 것으로 알아두면 개발에 유용할 것이라고 생각합니다.
+ES5 기준으로 작성하고 ES6를 설명하는 경우는 따로 명시하겠습니다.
 
-ES5 기준으로 작성하고 ES6 문법은 정리하지 안았습니다.
-
-기본적일 수도 있지만 개인적으로 중요하다고 생각하는 부분만 추린 것으로
-
-알아두면 실제 개발에 유용할 것이라고 생각합니다.
 
 ## 기본
 
@@ -37,6 +34,101 @@ arr3처럼 다양한 타입의 요소를 넣을 수 있지만 좋은 코드가 �
 배열은 arr4처럼 생성하고 배열 크기를 정하지 않아도 마음대로 값을 할당할 수 있습니다. 하지만 역시 좋은 코드가 아니기 때문에 사용하지 않습니다.
 
 유연한 배열은 쉽게 코드를 작성할 수 있지만 일관성이 없어지고 예측할 수 없게되어 코드를 어지럽게 만들기 때문에 정해진 방법안에서 사용하기 바랍니다.
+
+
+## for
+
+`for` 문은 괄호`()`로 감싸고 세미콜론`;`으로 구분한 세 개의 선택식과 반복을 수행할 블럭문`{}`으로 이루어져 있습니다.
+
+```js
+for (var i=0; i < arr.length ;i++) {
+    //
+}
+```
+
+다음과 같은 for 문도 존재합니다.
+
+
+### for ... in
+
+객체가 열거형 속성을 반복하여 조회합니다.
+
+```js
+for (var property in object) {
+    console.log(arr[property]);
+}
+```
+
+이때 property는 object의 열거형 속성입니다. 이 속성을 사용해 값을 가져오기 위해서는
+
+`arr[property]`
+
+이렇게 작성할 수 있습니다. 배열과 비슷하다고 배열과 혼동해서는 안되겠습니다. 위에서 설명한 것 처럼 객체의 열거형 속성을 조회합니다.
+
+
+### 열거형 속성(Enumerable properties)
+
+객체 내부에 열거형 플래그가 true로 설정된 property로 간단하게 표현해보면 
+
+```js
+var obj = {
+    a: 1
+};
+obj.b = 2;
+Object.defineProperty(obj, 'c', {
+    value: 3,
+    writable: true,
+    enumerable: true,
+    configurable: true
+});
+```
+
+객체의 속성을 단순히 생성하거나 defineProperty을 사용하여 enumerable이 true로 설정하여 속성의 성격을 결정할 수 있습니다.
+
+!Array에서는 사용할 수 없습니다.
+
+### for ... of
+
+반복가능한 객체(Iteration protocols)를 반복하고 각 속성값을 조회합니다. ES6에서 가능합니다.
+
+```js
+for (const element of arr) {
+    console.log(element);
+}
+```
+
+
+### 반복가능한 객체(Iteration protocols)
+
+예를들면 Array, Map, Set, String, arguments, rest arguemnts 처럼 반복가능한 객체를 말합니다.
+
+
+### 주의
+
+!여기서 주목할 점은 반복문을 수행하는 영역이 블럭문이라는 것입니다.
+
+javasrcipt는 `var`로 선언한 변수는 scope가 함수 범위를 가집니다. 즉 블럭 범위를 가지지 않습니다. 그래서 for 문안에서 선언한 변수는 블록문 바깥까지 영향을 미칩니다. 이는 예기치 못한 동작을 수행합니다.
+
+```js
+var x = 1;
+{
+    var x = 2;
+}
+x; // output: 2
+```
+
+`var`를 사용할 때는 이를 염두하고 프로그램을 작성해야합니다. 하지만 그럼에도 실수할 수 있는 변수입니다. 그러므로
+
+> `var` 변수는 사용하지 마세요.
+
+
+---
+
+개인적으로 for문은 배열의 모든 요소를 수행할 필요가 없을때 말고는 잘 사용하지 않습니다.
+왜냐면 for문으로는 현재 반복문이 어떤 역활을 수행하는지 알려주지 않기 때문입니다.
+반면에 배열 내부에는 반복문을 도와주는 유용한 메소드가 많이 존재합니다.
+메서드는 사용하기 편리한 것 뿐만아니라 어떤 목적에서 반복문을 수행하고 있는지 명확하게 알려주기 때문에 적극적으로 사용하는 것을 추천합니다.
+
 
 ## 메서드
 
@@ -112,11 +204,11 @@ arr.splice(2, 1, 'c'); // output: [1, 2, 3, 4]
 
 > arr.splice(start, deleteCount, items)
 
-|매개변수|설명|
-|---|---|
-|start|배열의 변경을 시작할 인덱스 입니다. 0부터 시작합니다. -1은 -n과 값습니다. 즉 요소의 끝을 가리키며 `arr.length - n`과 같습니다.|
-|deleteCount|삭제할 요소의 수입니다. 생략하면 모든 요소를 제거합니다.|
-|items|배열에 추가할 요소입니다. 콤마`,`로 구분합니다.|
+|매개변수|설명|optional|
+|---|---|---|
+|start|배열의 변경을 시작할 인덱스 입니다. 0부터 시작합니다. -1은 -n과 값습니다. 즉 요소의 끝을 가리키며 `arr.length - n`과 같습니다.||
+|deleteCount|삭제할 요소의 수입니다. 생략하면 모든 요소를 제거합니다.||
+|items|배열에 추가할 요소입니다. 콤마`,`로 구분합니다.||
 
 splice 매서드는 원본 배열을 변경합니다. 반환 값으로 제거한 요소들을 담은 배열을 반환합니다.
 
@@ -147,13 +239,13 @@ var result = arr.filter(function (item) {
 
 > arr.filter(callback(element[, index[, array]])[, thisArg])
 
-|매개변수|설명|
-|---|---|
-|callback|각 요소를 테스트하는 함수. true를 반환하면 요소를 유지하고, false 를 반환하면 요소를 버립니다.|
-|element|처리할 현재 요소|
-|index|처리하는 요소의 인덱스(optional)|
-|array|원본 배열(optional)|
-|thisArg|callback을 실행할 때 this로 사용하는 값(optional)|
+|매개변수|설명|optional|
+|---|---|---|
+|callback|각 요소를 테스트하는 함수. true를 반환하면 요소를 유지하고, false 를 반환하면 요소를 버립니다.||
+|element|처리할 현재 요소||
+|index|처리하는 요소의 인덱스|true|
+|array|원본 배열|true|
+|thisArg|callback을 실행할 때 this로 사용하는 값|true|
 
 
 ### join()
@@ -170,6 +262,29 @@ arr.join('-'); // output: 'a-b-c'
 |---||
 |매개변수|separator를 요소 사이를 채웁니다. separator가 없는 경우 콤마`,`로 채웁니다.|
 |반환 값|separator를 포함한 문자열|
+
+
+## slice()
+
+배열의 일부를 추출하여 얕은 복사의 새로운 배열을 반환합니다. 원본 배열은 바뀌지 않습니다.
+
+```js
+var arr = [1, 2, 3, 4, 5] ;
+var result = arr.slice(2, 4); // output: [3, 4]
+```
+
+> arr.slice([begin, [, end]])
+
+|매개변수|설명|optional|
+|---|---|---|
+|begin|추출하는 시점의 인덱스. begin을 포함합니다. 만약 begin이 없으면 0번 index 부터 slice 합니다.|true|
+|end|추출을 종료하는 인덱스. end는 포함하지 않습니다. 음수일 경우 배열의 끝에서부터의 인덱스를 나타냅니다.|true|
+
+반환값이 추출한 새로운 배열입니다.
+
+splice와 다른점은 splice 는 원본 배열에 영향을 주지만 slice는 원본 배열은 바뀌지 않기 때문에 개인적으로 splice보다 slice를 선호합니다.
+
+splice는 주로 요소를 특정위치에 삽입할때 주로 사용합니다.
 
 
 ### find()
@@ -194,18 +309,99 @@ arr.forEach(function (item) {
 
 > arr.forEach(callback(element[, index[, array]])[, thisArg])
 
-|매개변수|설명|
-|---|---|
-|callback|각 요소를 테스트하는 함수. true를 반환하면 요소를 유지하고, false 를 반환하면 요소를 버립니다.|
-|element|처리할 현재 요소|
-|index|처리하는 요소의 인덱스(optional)|
-|array|원본 배열(optional)|
-|thisArg|callback을 실행할 때 this로 사용하는 값(optional)|
+|매개변수|설명|optional|
+|---|---|---|
+|callback|각 요소를 처리하는 함수||
+|element|처리할 현재 요소||
+|index|처리하는 요소의 인덱스|true|
+|array|원본 배열|true|
+|thisArg|callback을 실행할 때 this로 사용하는 값|true|
 
 forEach는 단지 배열을 순회할뿐 어떤 값을 반환하지 않습니다.
 
+
+### map()
+
+배열 내의 모든 요소에 대하여 처리한 결과를 모아 새로운 배열로 반환합니다.
+
+```js
+const arr = [1, 2, 3];
+const result = arr.map(x => x * x); // output: [1, 4, 9]
+```
+
+> arr.map(callback(element[, index[, array]])[, thisArg])
+
+|매개변수|설명|optional|
+|---|---|---|
+|callback|각 요소를 처리하는 함수. 결과를 모아서 새로운 배열을 반환합니다.||
+|element|처리할 현재 요소||
+|index|처리하는 요소의 인덱스|true|
+|array|원본 배열|true|
+|thisArg|callback을 실행할 때 this로 사용하는 값|true|
+
+모든 요소를 처리하는 점을 염두해야합니다. 즉 falsy를 반환한다고 해서 스킵하지 않습니다.
+
+
+### reduce()
+
+각 요소에 주어진 리듀서(reducer) 함수를 실행하고 하나의 결과값을 반환합니다.
+
+```js
+var arr = [1, 2, 3];
+var reducer = function (accumulator, currentValue) {
+    return accumulator + currentValue;
+}
+// 1 + 2 + 3
+var result1 = arr.reduce(reducer); // output: 6
+// 5 + 1 + 2 + 3
+var result2 = arr.reduce(reducer, 5); // output: 11
+```
+
+> callback(accumulator, currentValue, currentIndex, array)
+> arr.reduce(callback[, initialValue])
+
+
+|매개변수|설명|optional|
+|---|---|---|
+|callback|각 요소를 처리하는 함수.||
+|accumulator|누산기. callback의 반환값을 누적합니다. callback의 첫 호출시 initialValue가 존재하면 accumulator의 초기값은 initialValue이 되고 initialValue가 존재하지 않으면 accumulator의 초기값은 배열의 첫 번째 요소입니다.||
+|currentValue|처리할 현재 요소||
+|currentIndex|처리할 현재 요소의 인덱스. 첫 호출시 initialValue가 존재하면 0, 아니면 1부터 시작합니다.|true|
+|array|원본 배열|true|
+|initialValue|callback의 최초 호출시 제공하는 값.|true|
+
+만약 빈 배열에 reduce를 수행하는데 initialValue가 없으면 `error`를 호출합니다. 어찌보면 당연한게 currentValue에서 arr[1]가 존재하지 않기 때문입니다.
+
+
+### some()
+
+배열 안의 어떤 요소라도 테스트를 통과하면 true 아니면 false를 반환합니다.
+
+```js
+const arr = [1, 2, 3];
+const even = arr.some((element) => element % 2 === 0); // output: true
+```
+
+ES6에서 사용가능합니다.
+
+### every()
+
+배열 안의 모든 요소가 테스트를 통과하면 true 아니면 false를 반환합니다.
+
+```js
+const arr = [1, 2, 3];
+const result = arr.some((element) => element < 5); // output: true
+```
+
+ES6에서 사용가능합니다.
+
+
+##
 
 
 
 ## 참조
 > [Array](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array)
+> [Enumerable properties](https://developer.mozilla.org/ko/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+> [defineProperty](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+> [Iteration protocols](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Iteration_protocols)
