@@ -16,3 +16,9 @@ toc_sticky: true
 javascript funtion은 다른 모든 객체처럼 속성과 메서드를 가질 수 있는 `객체`입니다.
 
 
+
+
+## 참조
+
+> (function)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions]   
+> (function guide)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions]   
