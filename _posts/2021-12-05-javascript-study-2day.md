@@ -16,6 +16,15 @@ toc_sticky: true
 javascript funtion은 다른 모든 객체처럼 속성과 메서드를 가질 수 있는 `객체`입니다.
 
 
+## 함수 표현시
+
+```js
+var f1 = function () {
+}
+function f2 () {
+}
+```
+
 
 
 ## 참조
