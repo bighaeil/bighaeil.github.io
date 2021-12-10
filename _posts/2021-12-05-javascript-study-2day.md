@@ -67,7 +67,37 @@ const f2 = () => 1;
 4. 생성자로 사용할 수 없습니다.
 5. yield를 사용할 수 없습니다. (yield는 제너레이터 함수에서 사용하는 키워드 인데 기회가 되면 설명하겠습니다.)
 
+화살표 함수의 특징은 간단한 표시이외에도 중요한 특징이 있습니다.
 
+### 화살표 함수와 this
+
+기존 function은 이 함수가 어디서 호출되는지에 따라 자신의 this를 정의했습니다.
+
+```js
+function Person() {
+  this.age = 0;
+  
+  setInterval(function growUp() {
+    this.age++; // this === window
+  }, 1000);  
+}
+var p = new Person();
+```
+
+위 에서 Person은 age라는 멤버를 가지고 있어서 1초마다 증가시키려고 하지만 동작하지 않습니다. 이때 사용한 growUp 함수는 this를 전역 객체(여기서는 window)로 정의하고 있기 때문입니다. 즉 Person 안에서 growUp 함수를 선언한 것 처럼 보이지만 사실은 아닙니다.
+
+여러가지 해결방법(바인딩)이 있겠지만 화살표 함수로 해결할 수 있겠습니다.
+
+```js
+function Person() {
+  this.age = 0;
+  
+  setInterval(() => {
+    this.age++; // this === Person의 인스턴스
+  }, 1000);  
+}
+var p = new Person();
+```
 
 
 
@@ -77,3 +107,5 @@ const f2 = () => 1;
 
 > (function)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions]   
 > (function guide)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions]   
+> (arrow function)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions]   
+> 
