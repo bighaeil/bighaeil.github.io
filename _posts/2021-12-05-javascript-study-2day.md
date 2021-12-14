@@ -154,23 +154,77 @@ Person 안에 this는 객체 자기 자신을 가리킵니다. 그리고 functio
 
 Object() 생설자를 이용한 객체 생성도 있지만 생략하겠습니다.
 
-### prototype
+### prototype과 상속 
 
 javascript는 프로토타입 기반 언어(prototype-based language)라고 불립니다. 그만큼 프로토타입을 이해하는 것이 필수라고 생각합니다. (그만큼 어렵기도 합니다.) 프로토타입은 모든 객체를 상속하기 위해 프로토타입 방식을 사용합니다. 자식은 부모의 프로토타입을 상속 받을 수 있고, 그 부모 역시 부모의 프로토타입을 상속받을 수 있습니다. 이를 프로토타입 체인(prototype chain)이라 합니다.
 
 ```js
 function Person() {
-  this.name = 'child';
+  this.name = 'self';
 }
 Person.prototype.name = 'parent';
 
 var boy = new Person();
-console.log(boy);
+console.log(boy.name); // self
+console.log(boy.__proto__.name); // 'parent'
 ```
+
+```js
+function Teacher() {
+}
+Teacher.prototype = Person;
+
+var man = new Teacher();
+console.log(man.name); // 'parent'
+```
+
+관리자모드에서 위 코드를 실행하면 아래와 같은 화면을 확인할 수 있습니다.
 
 ![object](//bighaeil.github.io/assets/images/2021-12-14_object.png)
 
+![inheritance](//assets/images/2021-12-14_inheritance.png)
 
+Person 안에는 name이라는 속성이 존재합니다. 그리고 prototype에 주목해 봅시다. prototype에도 name이라는 속성이 존재합니다.
+이때 Person의 인스턴스인 boy에서 속성 name을 호출하면 'self'를 호출합니다. 물론 위처럼 `__proto__`(prototype link)를 사용하면 Parent의 속성 name을 호출할 수 있습니다.
+
+이렇게 인스턴스 boy 안에는 자신의 속성 name과 prototype의 속성 name이 동시에 존재합니다.
+
+여기서 Person의 직접 적용한 this.name을 삭제한 후 다시 실행하면 boy.name은 'self'가 아닌 'parent'를 호출합니다.
+즉 속성 name을 호출하면 먼저 자기 자신의 속성 name을 찾고 없으면 prototype의 속성 name을 찾는 것을 알 수 있겠습니다.
+
+Teacher는 Person을 상속받은 설계도`class`입니다. Teacher에는 속성 name이 없습니다. 하지만 Teacher의 인스턴스 man에서는 속성 name을 호출할 수 있습니다. 즉 속성 name을 Teacher에서 찾고, 없으면 prototype에서 속성 name을 찾는데 이 prototype이 Person이라 Person의 속성 name을 찾게되는 것 입니다.
+하지만 재미있게도 Person의 안에서 `this`로 선언한 속성 name 'self'가 아니고 'parent'를 출력합니다.
+
+여기가 제가 javascript의 객체를 공부하면서 헷갈렸던 부분입니다.
+
+보통(java에서) 객체의 설계도`class`라하면 그 객체가 설계한 모든 멤버를 가져오는 것에 익숙했습니다.
+하지만 javascript에서는 `this`는 상속에 상관없이 자기 자신에게만 적용되는 속성으로 정의되어 있습니다. 상속되는 맴버는 `prototype`으로만 정의할 수 있었습니다.
+
+그렇다면 아래와 같이 Person을 변경해 보겠습니다.
+
+```js
+function Person() {
+  this.name = 'self';
+}
+
+function Teacher() {
+}
+Teacher.prototype = Person;
+
+var man = new Teacher();
+console.log(man.name); // 'Person' 이때 'Person'은 함수 name이다. function.name 참조
+```
+
+위를 실행하면 'parent'도 아닌 'self'도 아닌 생뚱맞은 'Person'이 나왔습니다. 분명 Person에 속성 name을 선언했지만 찾지 못하고 결국 찾다찾다 함수 이름을 반환하는 내부 속성인 `name`을 반환하는 것을 확인할 수 있습니다.
+
+
+## 마무리
+
+javascript의 function의 특징과 다양한 사용법을 확인했습니다.
+특별한 목적을 수행하는 함수로서 function과 객체로서 function을 알 수 있었습니다.
+javascript에서는 객체 역시 유연하면서 다양한 것을 알 수 있었습니다.
+객체 안에서 this를 확인할 수 있었습니다.
+객체의 설계도를 작성하면서 햇갈렸던 부분인 prototype의 특징과 사용법을 정리했습니다.
 
 
 ## 참조
@@ -179,4 +233,4 @@ console.log(boy);
 > [function guide](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions)   
 > [arrow function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions)   
 > [Objects](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects)   
-> 
+> [function.name](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/name)
