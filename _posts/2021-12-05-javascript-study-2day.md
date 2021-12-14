@@ -104,19 +104,79 @@ var p = new Person();
 
 ---
 
-개인적으로 function에서 this가 중요하다고 생각합니다. 이유는 javascript에서 function은 객체이기 때문입니다. 즉 현재 진행하는 동작이 누구인지가 중요하기 때문입니다.
+개인적으로 function에서 this가 중요하다고 생각합니다. 이유는 javascript에서 function은 객체이기 때문에 현재 진행하는 동작이 누구인지가 중요하기 때문입니다.
 
 
 ## Object
 
+먼저 간단하게 오브젝트를 만들어 보겠습니다.  
+(인스턴스라고 불러야될지는 모르겠습니다. 보통 인스턴스는 설계도를 바탕으로 구현된 구체적인 실체라는 의미를 가지기 때문에 생각해볼 문제일 것 같습니다.)
 
+
+```js
+var obj = {
+  name: '123',
+  fn: function () {
+    return this.name;
+  }
+};
+
+obj.fn(); // '123'
+
+var obj2 = new obj();
+
+obj2.fn(); //error: obj is not constructor
+```
+
+javascript에서 오브젝트는 중괄호`{}`를 이용하여 쉽게 실체가 있는 객체로 만들 수 있습니다. 하지만 이 객체는 설계도`class`없이 만들었기 때문에 `new`키워드를 이용하여 객체를 만들 수 없습니다. 
+obj에는 속성 name이 있습니다. 속성 fn은 함수로 무언가를 실행하는데 이때 동작을 하는 주체`this`는 자기 자신이 됩니다.
+
+ES5 기준으로 javascript에는 `class` 키워드가 없습니다. 그래서 이전에는 `function`을 사용하여 객체를 만들었습니다.
+
+```js
+function Person(name) {
+  this.name = name;
+  this.age = 1;
+  this.fn = function () {
+    return this.name;
+  }
+}
+
+var baby1 = new Person('철수');
+
+baby1.fn(); // '철수'
+
+var baby2 = new Person('영희');
+```
+
+Person이라는 설계도를 이용하여 객체를 설계하고 `new`키워드를 이용하여 인스턴스를 생성했습니다.
+Person 안에 this는 객체 자기 자신을 가리킵니다. 그리고 function 안의 this 역시 자기 자신을 가리킵니다.
+
+Object() 생설자를 이용한 객체 생성도 있지만 생략하겠습니다.
+
+### prototype
+
+javascript는 프로토타입 기반 언어(prototype-based language)라고 불립니다. 그만큼 프로토타입을 이해하는 것이 필수라고 생각합니다. (그만큼 어렵기도 합니다.) 프로토타입은 모든 객체를 상속하기 위해 프로토타입 방식을 사용합니다. 자식은 부모의 프로토타입을 상속 받을 수 있고, 그 부모 역시 부모의 프로토타입을 상속받을 수 있습니다. 이를 프로토타입 체인(prototype chain)이라 합니다.
+
+```js
+function Person() {
+  this.name = 'child';
+}
+Person.prototype.name = 'parent';
+
+var boy = new Person();
+console.log(boy);
+```
+
+![object](//bighaeil.github.io/assets/images/2021-12-14_object.png)
 
 
 
 
 ## 참조
 
-> (function)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions]   
-> (function guide)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions]   
-> (arrow function)[https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions]   
+> [function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions)   
+> [function guide](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Functions)   
+> [arrow function](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Arrow_functions)   
+> [Objects](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects)   
 > 
