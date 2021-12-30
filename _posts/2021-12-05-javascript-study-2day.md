@@ -15,7 +15,7 @@ toc_sticky: true
 
 javascript funtion은 다른 모든 객체처럼 속성과 메서드를 가질 수 있는 `객체`입니다.
 
-이를 염두하고 함수에 대해서 알아보자.
+이를 염두하고 함수에 대해서 알아보겠습니다.
 
 
 ## 함수 표현식
@@ -59,7 +59,7 @@ const f2 = () => 1;
 
 전통적인 함수표현의 간단한 표시입니다.
 
-그렇다고 완전히 같은지는 않은 것 같습니다.
+그렇다고 완전히 같지는 않은 것 같습니다.
 
 1. this나 super에 대한 바인딩이 없습니다.
 2. new 키워드가 없습니다. prototype 도 없습니다.
@@ -182,7 +182,7 @@ console.log(man.name); // 'parent'
 
 ![object](//bighaeil.github.io/assets/images/2021-12-14_object.png)
 
-![inheritance](//assets/images/2021-12-14_inheritance.png)
+![inheritance](//bighaeil.github.io/assets/images/2021-12-14_inheritance.png)
 
 Person 안에는 name이라는 속성이 존재합니다. 그리고 prototype에 주목해 봅시다. prototype에도 name이라는 속성이 존재합니다.
 이때 Person의 인스턴스인 boy에서 속성 name을 호출하면 'self'를 호출합니다. 물론 위처럼 `__proto__`(prototype link)를 사용하면 Parent의 속성 name을 호출할 수 있습니다.
