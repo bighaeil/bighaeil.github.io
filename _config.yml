@@ -16,9 +16,9 @@ minimal_mistakes_skin: "dark" # "default", "air", "aqua", "contrast", "dark", "d
 
 # Site Settings
 locale: "ko-KR" # "en-US"
-title: "아는 만큼만 느나"
+title: "빅해일"
 title_separator: "-"
-name: "BigHaeil"
+name: "bighaeil"
 description: "WILL BE Done"
 url: "https://bighaeil.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
@@ -105,7 +105,7 @@ analytics:
 
 # Site Author
 author:
-  name: "Big Haeil"
+  name: "bighaeil"
   avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio: ""
   location: "korea"
