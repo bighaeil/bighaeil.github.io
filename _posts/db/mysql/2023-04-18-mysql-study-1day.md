@@ -1,8 +1,9 @@
 ---
-title: "MySQL 스터디 1일차"
+title: "MySQL 스터디 1일차 - architecture"
 categories:
     - db
     - mysql
+    - architecture
 last_modified_at: 2023-04-18T10:15:00
 toc: true
 ---

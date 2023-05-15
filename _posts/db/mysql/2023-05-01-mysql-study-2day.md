@@ -1,8 +1,9 @@
 ---
-title: "MySQL 스터디 2일차"
+title: "MySQL 스터디 2일차 - transaction"
 categories:
     - db
     - mysql
+    - transaction
 last_modified_at: 2023-05-01T17:00:00
 toc: true
 ---
