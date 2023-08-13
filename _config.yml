@@ -128,7 +128,7 @@ author:
       # url: "https://bighaeil.github.io"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://instagram.com/bighaeil"
 
 # Site Footer
 footer:
@@ -150,7 +150,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url:
+      url: "https://instagram.com/bighaeil"
 
 # Reading Files
 include:
